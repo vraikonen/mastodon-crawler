@@ -1,16 +1,8 @@
-import asyncio
-import time
-import os
 import sys
-import logging
 
-from utils.reading_config import reading_config_db_params, reading_config_user
+from utils.reading_config import reading_config_db_params
 from utils.logging import logging_crawler, custom_exception_hook
-from utils.file_io import (
-    read_channels_from_file,
-    write_pickle,
-    read_pickle,
-)
+
 from utils.mongodb_writer import initialize_mongodb
 from utils.intialize_user import initialize_users
 from utils.mongodb_writer import create_index

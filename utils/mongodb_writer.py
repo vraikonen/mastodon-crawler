@@ -30,14 +30,14 @@ def initialize_mongodb(
     """
     # Initialize the MongoDB client
     myclient = pymongo.MongoClient(server_path)
-    logging.info(f"Connection established with: {server_path}")
+    logging.info(f"Connection established with: {server_path}; Database name:{database}; Collection name: {collection} ")
 
     # Access or create the database
     db = myclient[database]
 
     # Access or create the collections
     collection = db[collection]
-
+    
     # Return the collections
     return collection
 

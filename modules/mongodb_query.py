@@ -1,7 +1,7 @@
 from pymongo import MongoClient
 from utils.reading_config import reading_config_db_params
 
-def get_last_tooth_id():
+def get_last_toot_id():
     
     # Connect to db 
     config_database = "config/config-db-params.ini"
@@ -17,7 +17,7 @@ def get_last_tooth_id():
     db = client[database]
     collection = db[collection]
     
-    # Define the sort condition to get the oldest tooth
+    # Define the sort condition to get the oldest toot
     sort_condition = [('id', 1)]
     first_document = collection.find_one(sort=sort_condition)
     

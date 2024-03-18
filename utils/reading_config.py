@@ -1,5 +1,4 @@
 import configparser
-import os
 from datetime import datetime
 def reading_config_user(config_file):
     """
@@ -56,9 +55,9 @@ def reading_config_db_params(config_file):
 
     min_id = config["Database"]["min_id"]
     
-    # # Change to datetime object, if at one point we wanna pass datetime instead of ID
-    # max_id = datetime.strptime(max_id, "%Y, %m, %d, %H, %M, %S")
-    # min_id = datetime.strptime(min_id, "%Y, %m, %d, %H, %M, %S")
+    # Create datetime object to be returned by the function
+    max_id = datetime.strptime(max_id, "%Y, %m, %d, %H, %M, %S")
+    min_id = datetime.strptime(min_id, "%Y, %m, %d, %H, %M, %S")
 
 
     return (
