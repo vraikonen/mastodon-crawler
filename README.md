@@ -11,7 +11,7 @@
 <h3 align="center">Mastodon Crawler</h3>
 
   <p align="center">
-    This Python script fetches historical toots(statutes) from public Mastodon federations (instances). Restricted or private toot cannot be accessed. User defines crawling period by providing start and end date as GMT+0. Toots are stored in MongoDB.
+    This Python script fetches historical toots (statutes) from public Mastodon federations (instances). Restricted or private toots cannot be accessed. User defines crawling period by providing start and end date as GMT+0. Toots are stored in MongoDB.
     <br />
     <a href="https://git.sbg.ac.at/geo-social-analytics/geo-social-media/mastodon-crawler"><strong>Explore the docs »</strong></a>
     <br />
@@ -31,29 +31,16 @@
   <summary>Table of Contents</summary>
   <ol>
     <li>
-      <a href="#about-the-project">About The Project</a>
-    </li>
-    <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
-	<li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#obtaining-credentials-for-telegram-api">Obtaining Credentials for Telegram API</a></li>
-	<li><a href="#database-configuration">Database configuration</a></li>
+      <li><a href="#prerequisites">Prerequisites</a></li>
+      <li><a href="#obtaining-credentials-for-mastodon-api">Obtaining Credentials for Mastodon API</a></li>
+      <li><a href="#database-configuration">Database configuration</a></li>
+      <li><a href="#restart-of-the-script">Restart of the script</a></li>
       </ul>
     </li>
-    <li>
-	<a href="#code-explanation">Code Explanation</a>
-    	<ul>
-         <li><a href="#general-overview">General Overview</a></li>
-         <li><a href="#flowchart">Flowchart</a></li>
-	       <li><a href="#restart-logic">Restart logic</a></li>
-         <li><a href="#network/iteration-logic">Network/Iteration logic</a></li>
-         <li><a href="#multi-client-and-ratelimit-logic">Multi-client and ratelimit logic</a></li>
-	</ul>
-    </li>
-    <li><a href="#db-data-structure">DB Data Structure</a></li>
-    <li><a href="#queries-example-and-tips">Queries example and tips</a></li>
-    <li><a href="#Suggestions-and-Issues">Suggestions and Issues</a></li>
+    <li><a href="#queries-example-and-tips">Query example</a></li>
+    <li><a href="#Feature Requests and Bug Reports">Feature Requests and Bug Reports</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
@@ -157,7 +144,7 @@ Since the Windows .msi distribution needs be installed on the system drive, here
 
 ### Step 4: Run the script 
 
-1. Open the file `config/config-db-params.ini` and define start and end date of desired crawling period. S
+1. Open the file `config/config-db-params.ini` and define start and end date of the desired crawling period. 
 
 4. Run the `main.py` script.
     ```
@@ -175,14 +162,13 @@ Check notebooks with the examples on how to query data retrieved from Mastodon <
 <!-- Suggestions and Issues -->
 ## Feature Requests and Bug Reports
 
-See the [open issues](https://git.sbg.ac.at/geo-social-analytics/geo-social-media/telegram-crawler/-/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://git.sbg.ac.at/geo-social-analytics/geo-social-media/telegram-crawler/-/issues) for a full list of proposed features and known issues.
 
-    Currently, there could be a nicer date-time configuration and not ID, as well as user network. Notebook with the code that retrieves and print user network is in notebooks/mastodon-network.ipynb
+Notebook with the code that retrieves and print user details is in the file `notebooks/mastodon-network.ipynb`.
 
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-* []() Nefta
-* []() David
+* []() Nefta Kanilmaz Umnut
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
