@@ -11,7 +11,7 @@
 <h3 align="center">Mastodon Crawler</h3>
 
   <p align="center">
-    This Python script fetches historical tooths from public Mastodon federations (instances). Restricted or private tooths cannot be accessed. User defines crawling period by providing the ID of the two tooths. With pagination, ID of the tooth acts as a start/end time of the crawling process. Tooths are stored in MongoDB.
+    This Python script fetches historical toots(statutes) from public Mastodon federations (instances). Restricted or private toot cannot be accessed. User defines crawling period by providing start and end date as GMT+0. Toots are stored in MongoDB.
     <br />
     <a href="https://git.sbg.ac.at/geo-social-analytics/geo-social-media/mastodon-crawler"><strong>Explore the docs »</strong></a>
     <br />
@@ -91,9 +91,9 @@ pip install -r requirements.txt
 
 5. In the config file `config-user-example.ini`, there are two variables `client_token_path` and `user_token_path`. You can see that both strings start with `config/user-example`, thus it points to the folder where the config file is located. If you change the name of the folder, you need to update both variables, so that it still points out to the user's folder.
 
-### Additional Step: Utilize more accounts
+### Additional (strongly suggested) Step: Utilize more accounts
 
-1. If you want to have more accounts (and I do suggest, maybe 5?), please follow mentioned rules in regards to naming and have different name for each of the folders containing configuration file.
+1. If you want to have more accounts (and I do suggest, maybe 5, as the script is optimized to work with more than 1), please follow mentioned rules in regards to naming and have different name for each of the folders containing user configuration file.
 
 2. Let's assume we have three user accounts. In that case our `config` folder could be organized as follows:
 
@@ -107,7 +107,7 @@ pip install -r requirements.txt
         │   └── config-user.ini
         └── config-db-params.ini
         
-3. You can se we start the name of our user folders with the string `user` and they all differ between each other. We can also see that the name of the config file inside the user folder starts with `config-user`. Finally: **do not forget to change the variables `client_token_path` and `user_token_path` inside each of the config files**. For example, in the case of `user1`, the setup is: 
+3. You can see that we start the name of our user folders with the string `user` and they all differ between each other. We can also see that the name of the config file inside the user folder starts with `config-user`. Finally: **do not forget to change the variables `client_token_path` and `user_token_path` inside each of the config files**. For example, in the case of `user1`, the setup is: 
 
         client_token_path = config/user1/pytooter_clientcred.secret
         user_token_path = config/user1/pytooter_usercred.secret
@@ -157,16 +157,7 @@ Since the Windows .msi distribution needs be installed on the system drive, here
 
 ### Step 4: Run the script 
 
-1. Go to Mastodon and search for tooths that are posted on the start and the end of your desired crawling period. 
-
-2. Let's go through an example. Assuming we want to get all the data from 1 March 2024 to 11 March 2024, we could use these posts to extract ID that the script use as a time threshold (it will only fetch the tooths that were posted in between these two posts): 
-
-    https://mastodon.social/@geoObserver/112081675729346879
-    https://mastodon.social/@djh@chaos.social/112016939429102703
-
-2. If you open the URL, you can see that the first tooth is posted on March 12, and second on February 29. Last string of the URL is the ID. 
-
-3. Next step is to put both IDs in the file `config/config-db-params.ini`. Assigne the ID of the more recent tooth to the `max_id` variable. Assign the ID of the older tooth to the variable `min_id`.
+1. Open the file `config/config-db-params.ini` and define start and end date of desired crawling period. S
 
 4. Run the `main.py` script.
     ```
