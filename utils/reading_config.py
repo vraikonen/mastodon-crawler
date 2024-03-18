@@ -1,5 +1,5 @@
 import configparser
-from datetime import datetime
+from datetime import datetime, timedelta
 def reading_config_user(config_file):
     """
     Reads configuration values from a Mastodon user config file.
@@ -58,7 +58,9 @@ def reading_config_db_params(config_file):
     # Create datetime object to be returned by the function
     max_id = datetime.strptime(max_id, "%Y, %m, %d, %H, %M, %S")
     min_id = datetime.strptime(min_id, "%Y, %m, %d, %H, %M, %S")
-
+    # Add one hour, Mastodon somehow returns one hour less from what is provided
+    max_id += timedelta(hours=1)
+    min_id += timedelta(hours=1)
 
     return (
         server_path,
