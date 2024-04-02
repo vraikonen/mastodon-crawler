@@ -3,6 +3,12 @@ from utils.reading_config import reading_config_db_params
 
 
 def get_last_toot_id():
+    """
+    Get the ID of the oldest toot stored in the database.
+
+    Returns:
+        int: The ID of the oldest toot.
+    """
 
     # Connect to db
     config_database = "config/config-db-params.ini"

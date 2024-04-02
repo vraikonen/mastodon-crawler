@@ -29,18 +29,18 @@ def reading_config_user(config_file):
 
 def reading_config_db_params(config_file):
     """
-    Reads database configuration values from a database config
-    file and two scrpt related variables.
+    Reads database configuration values from a database config file and two script related variables.
 
     Parameters:
-    - config_file (str): The path to the database config file.
+        config_file (str): The path to the database config file.
 
     Returns:
-    tuple: A tuple containing the following configuration values:
-        - server_path (str): The server path for the database.
-        - database (str): The name of the database.
-        - collection (str): Name of the collection that stores toots.
-
+        tuple: A tuple containing the following configuration values:
+            - server_path (str): The server path for the database.
+            - database (str): The name of the database.
+            - collection (str): Name of the collection that stores toots.
+            - max_id (datetime): The maximum ID value for toots as datatime object.
+            - min_id (datetime): The minimum ID value for toots as datetime object.
     """
     # Reading Configs
     config = configparser.ConfigParser()

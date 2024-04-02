@@ -9,6 +9,20 @@ from utils.reading_config import reading_config_user
 def initialize_user(
     user_folder, api_base_url, client_token_path, user_token_path, user_email, user_pass
 ):
+    """
+    Initialize a Mastodon API user instance.
+
+    Args:
+        user_folder (str): Path to the user folder.
+        api_base_url (str): Base URL of the Mastodon instance.
+        client_token_path (str): Path to store the client token.
+        user_token_path (str): Path to store the user token.
+        user_email (str): User's email for authentication.
+        user_pass (str): User's password for authentication.
+
+    Returns:
+        mastodon (Mastodon): Initialized Mastodon API user instance.
+    """
 
     # Check if the App is created and if the user is authorized
     if any(glob.glob(os.path.join(user_folder, "*.secret"))):
@@ -54,6 +68,11 @@ import os
 def initialize_users():
     """
     Get Mastodon instances from user configuration folders.
+
+    This function searches for user configuration folders within the 'config'
+    directory, reads the configuration files named 'config-user' within those
+    folders, and initializes Mastodon instances based on the configuration
+    data. It returns a list of initialized Mastodon instances.
 
     Returns:
         list: A list of Mastodon instances.
