@@ -3,6 +3,7 @@ import re
 import logging
 import pymongo
 
+
 def initialize_mongodb(
     server_path,
     database,
@@ -19,25 +20,23 @@ def initialize_mongodb(
     Parameters:
     - server_path (str): The MongoDB server path.
     - database (str): The name of the MongoDB database.
-    - collection1 (str): The name of the first collection.
-    - collection2 (str): The name of the second collection.
-    - collection3 (str): The name of the third collection.
-    - collection4 (str): The name of the fourth collection.
-    - collection5 (str): The name of the fifth collection.
+    - collection (str): The name of the collection.
 
     Returns:
-    tuple: A tuple containing the specified MongoDB collections (collection1 to collection5).
+    tuple: A tuple containing the specified MongoDB collection.
     """
     # Initialize the MongoDB client
     myclient = pymongo.MongoClient(server_path)
-    logging.info(f"Connection established with: {server_path}; Database name:{database}; Collection name: {collection} ")
+    logging.info(
+        f"Connection established with: {server_path}; Database name:{database}; Collection name: {collection} "
+    )
 
     # Access or create the database
     db = myclient[database]
 
     # Access or create the collections
     collection = db[collection]
-    
+
     # Return the collections
     return collection
 
@@ -63,7 +62,7 @@ def write_data(data, collection_name):
     None
     """
     try:
-        #async with lock:
+        # async with lock:
         # Insert the data into the collection
         # Data should be a dictionary or a list of dictionaries
         if isinstance(data, dict):

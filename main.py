@@ -8,8 +8,8 @@ from utils.intialize_user import initialize_users
 from utils.mongodb_writer import create_index
 
 from modules.api_requests import get_history
-            
-## TODO Log response.header, track 
+
+## TODO Log response.header, track
 if __name__ == "__main__":
     # Initiate logging, set the custom exception hook
     logging_crawler()
@@ -26,21 +26,13 @@ if __name__ == "__main__":
     ) = reading_config_db_params(config_database)
 
     # Connect to database and create database and collections
-    (
-        toots_collection
-    ) = initialize_mongodb(
-        server_path,
-        database,
-        collection
-    )
-    
+    (toots_collection) = initialize_mongodb(server_path, database, collection)
+
     # Create an index on the id field
     create_index(toots_collection, "id")
 
     # Initialize users
     mastodons = initialize_users()
-    
+
     # Start crawling
     get_history(mastodons, toots_collection, max_id, min_id)
-        
-

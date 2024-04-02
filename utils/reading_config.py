@@ -1,5 +1,7 @@
 import configparser
 from datetime import datetime, timedelta
+
+
 def reading_config_user(config_file):
     """
     Reads configuration values from a Mastodon user config file.
@@ -27,18 +29,18 @@ def reading_config_user(config_file):
 
 def reading_config_db_params(config_file):
     """
-    Reads database configuration values from a database config
-    file and two scrpt related variables.
+    Reads database configuration values from a database config file and two script related variables.
 
     Parameters:
-    - config_file (str): The path to the database config file.
+        config_file (str): The path to the database config file.
 
     Returns:
-    tuple: A tuple containing the following configuration values:
-        - server_path (str): The server path for the database.
-        - database (str): The name of the database.
-        - collection (str): Name of the collection that stores toots.
-
+        tuple: A tuple containing the following configuration values:
+            - server_path (str): The server path for the database.
+            - database (str): The name of the database.
+            - collection (str): Name of the collection that stores toots.
+            - max_id (datetime): The maximum ID value for toots as datatime object.
+            - min_id (datetime): The minimum ID value for toots as datetime object.
     """
     # Reading Configs
     config = configparser.ConfigParser()
@@ -50,17 +52,18 @@ def reading_config_db_params(config_file):
     database = config["Database"]["database"]
 
     collection = config["Database"]["collection"]
-    
+
     max_id = config["Database"]["max_id"]
 
     min_id = config["Database"]["min_id"]
-    
+
     # Create datetime object to be returned by the function
     max_id = datetime.strptime(max_id, "%Y, %m, %d, %H, %M, %S")
     min_id = datetime.strptime(min_id, "%Y, %m, %d, %H, %M, %S")
-    # Add one hour, Mastodon somehow returns one hour less from what is provided
-    max_id += timedelta(hours=1)
-    min_id += timedelta(hours=1)
+    # Add 2 hours, Mastodon somehow returns 2 hour less from what is provided as date and time
+    # This need to be changed when the time changes again in Oct 2024
+    max_id += timedelta(hours=2)
+    min_id += timedelta(hours=2)
 
     return (
         server_path,
