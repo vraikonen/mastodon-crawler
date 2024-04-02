@@ -60,9 +60,10 @@ def reading_config_db_params(config_file):
     # Create datetime object to be returned by the function
     max_id = datetime.strptime(max_id, "%Y, %m, %d, %H, %M, %S")
     min_id = datetime.strptime(min_id, "%Y, %m, %d, %H, %M, %S")
-    # Add one hour, Mastodon somehow returns one hour less from what is provided
-    max_id += timedelta(hours=1)
-    min_id += timedelta(hours=1)
+    # Add 2 hours, Mastodon somehow returns 2 hour less from what is provided as date and time
+    # This need to be changed when the time changes again in Oct 2024
+    max_id += timedelta(hours=2)
+    min_id += timedelta(hours=2)
 
     return (
         server_path,
