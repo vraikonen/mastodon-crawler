@@ -11,7 +11,7 @@
 <h3 align="center">Mastodon Crawler</h3>
 
   <p align="center">
-    This Python script fetches historical toots (statutes) from public Mastodon federations (instances). Restricted or private toots cannot be accessed. User defines crawling period by providing start and end date as GMT+0. Toots are stored in MongoDB.
+    This Python script fetches historical toots (posts) from public Mastodon federations (instances). Restricted or private toots cannot be accessed. User defines crawling period by providing start and end date as GMT+0. Toots are stored in MongoDB.
     <br />
     <a href="https://github.com/vraikonen/mastodon-crawler"><strong>Explore the docs »</strong></a>
     <br />
