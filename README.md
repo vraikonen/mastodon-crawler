@@ -4,7 +4,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://git.sbg.ac.at/geo-social-analytics/geo-social-media/mastodon-crawler">
+  <a href="https://github.com/vraikonen/mastodon-crawler">
     <img src="img/mastodon.png" alt="Logo" width="80" height="80">
   </a>
 
@@ -13,14 +13,14 @@
   <p align="center">
     This Python script fetches historical toots (statutes) from public Mastodon federations (instances). Restricted or private toots cannot be accessed. User defines crawling period by providing start and end date as GMT+0. Toots are stored in MongoDB.
     <br />
-    <a href="https://git.sbg.ac.at/geo-social-analytics/geo-social-media/mastodon-crawler"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/vraikonen/mastodon-crawler"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://git.sbg.ac.at/geo-social-analytics/geo-social-media/mastodon-crawler">View Demo</a>
+    <a href="https://github.com/vraikonen/mastodon-crawler">View Demo</a>
     ·
-    <a href="https://git.sbg.ac.at/geo-social-analytics/geo-social-media/mastodon-crawler/-/issues">Report Bug</a>
+    <a href="https://github.com/vraikonen/mastodon-crawler/issues">Report Bug</a>
     ·
-    <a href="https://git.sbg.ac.at/geo-social-analytics/geo-social-media/mastodon-crawler/-/issues">Request Feature</a>
+    <a href="https://github.com/vraikonen/mastodon-crawler/issues">Request Feature</a>
   </p>
 </div>
 
@@ -156,13 +156,13 @@ If terminated, script will continue where it stopped as it reads the last proces
 
 <!-- Queries example and tips -->
 ## Queries example and tips
-Check notebooks with the examples on how to query data retrieved from Mastodon <a href="https://git.sbg.ac.at/geo-social-analytics/geo-social-media/telegram-crawler/-/tree/main/notebooks">here</a> (on gitlab) or [here](./notebooks) (if you cloned the repository to your local machine).
+Check notebooks with the examples on how to query data retrieved from Mastodon <a href="https://github.com/vraikonen/mastodon-crawler/notebooks">here</a> (on github) or [here](./notebooks) (if you cloned the repository to your local machine).
 
 
 <!-- Suggestions and Issues -->
 ## Feature Requests and Bug Reports
 
-See the [open issues](https://git.sbg.ac.at/geo-social-analytics/geo-social-media/telegram-crawler/-/issues) for a full list of proposed features and known issues.
+See the [open issues](https://github.com/vraikonen/mastodon-crawler/issues) for a full list of proposed features and known issues.
 
 Notebook with the code that retrieves and print user details is in the file `notebooks/mastodon-network.ipynb`.
 
